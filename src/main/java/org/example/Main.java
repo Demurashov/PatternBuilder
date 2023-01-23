@@ -9,23 +9,24 @@ public class Main {
                 .setAge(40)
                 .setAdress("Санкт-Петербург")
                 .build();
-        Person child=person.newChildBuilder()
+        Person child = person.newChildBuilder()
                 .setName("Вася")
                 .setAge(2)
                 .build();
-        person.happyBirthday();
-        System.out.println(person.hasAge());
 
-        System.out.println("Отец: "+person.toString());
-        System.out.println("Ребенок: "+child.toString());
+        System.out.println("Возраст отца известен? "+person.hasAge());
+        System.out.println("Отец: " + person.toString());
+        System.out.println("Ребенок: " + child.toString());
+        child.happyBirthday();
+        System.out.println("Ребенок: " + child.toString());
         try {
             new Person.PersonBuilder().build();
-        }catch (IllegalStateException exception){
+        } catch (IllegalStateException exception) {
             exception.printStackTrace();
         }
         try {
             new Person.PersonBuilder().setAge(-10).build();
-        }catch (IllegalArgumentException exception){
+        } catch (IllegalArgumentException exception) {
             exception.printStackTrace();
         }
     }
